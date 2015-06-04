@@ -1,0 +1,27 @@
+<h2>Show chats</h2>
+
+<ul>
+
+  <li>
+    <strong>Fbid:</strong>
+    <%= @chats.fbid %>
+  </li>
+
+  <li>
+    <strong>Latitude:</strong>
+    <%= @chats.latitude %>
+  </li>
+
+  <li>
+    <strong>Longitude:</strong>
+    <%= @chats.longitude %>
+  </li>
+
+  <li>
+    <strong>Content:</strong>
+    <%= @chats.content %>
+  </li>
+
+</ul>
+
+<%= link "Back", to: chats_path(@conn, :index) %>

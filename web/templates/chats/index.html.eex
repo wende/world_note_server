@@ -1,0 +1,32 @@
+<h2>Listing chats</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Fbid</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Content</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for chats <- @chats do %>
+    <tr>
+      <td><%= chats.fbid %></td>
+      <td><%= chats.latitude %></td>
+      <td><%= chats.longitude %></td>
+      <td><%= chats.content %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: chats_path(@conn, :show, chats), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: chats_path(@conn, :edit, chats), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: chats_path(@conn, :delete, chats), method: :delete, class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New chats", to: chats_path(@conn, :new) %>
