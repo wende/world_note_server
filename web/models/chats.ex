@@ -6,11 +6,12 @@ defmodule WorldNote.Chats do
     field :latitude, :float
     field :longitude, :float
     field :content, :string
+    field :fullname, :string
 
     timestamps
   end
 
-  @required_fields ~w(fbid latitude longitude content)
+  @required_fields ~w(fbid latitude longitude content fullname)
   @optional_fields ~w()
 
   @doc """

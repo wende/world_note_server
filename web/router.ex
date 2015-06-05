@@ -21,6 +21,7 @@ defmodule WorldNote.Router do
   scope "api", WorldNote do
     pipe_through :api
 
+    options "/chats", ChatsController, :options
     resources "/chats", ChatsController
   end
 

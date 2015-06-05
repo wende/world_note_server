@@ -13,13 +13,19 @@ defmodule WorldNote.ChatsController do
     conn
     |> put_resp_header("access-control-allow-origin", "*")
     |> put_resp_header("access-control-allow-headers", headers)
-    |> put_resp_header("access-control-allow-methods", "get, post, options")
+    |> put_resp_header("access-control-allow-methods", "get, post, put, options")
     |> put_resp_header("access-control-max-age", "3600")
   end
 
   def parse(string) do
     {a, ""} = Float.parse(string)
     a
+  end
+
+  def options(conn, _) do
+    conn
+  |> put_status(202)
+  |> text "Ok"
   end
 
   def index(conn, %{"lat" => lat, "lng" => lng}) do
