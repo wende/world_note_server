@@ -30,10 +30,10 @@ defmodule WorldNote.ChatsController do
 
   def index(conn, %{"lat" => lat, "lng" => lng}) do
     # +-0.1 bounds of both
-    latH = parse(lat) + 0.1
-    latL = parse(lat) - 0.1
-    lngH = parse(lng) + 0.1
-    lngL = parse(lng) - 0.1
+    latH = parse(lat) + 0.01
+    latL = parse(lat) - 0.01
+    lngH = parse(lng) + 0.01
+    lngL = parse(lng) - 0.01
 
     query = from w in Chats,
             where: w.latitude   < ^latH and w.latitude  > ^latL
